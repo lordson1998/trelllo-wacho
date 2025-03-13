@@ -30,8 +30,14 @@ export class ProjectController{
         const { id } = req.params
         console.log(id)
          try {
-            const projects = await Project.find({})
-            res.json(projects)
+            const project = await Project.findById(id)
+
+            if (!project){
+                const error = new Error('proyecto no encontrado')
+                return res.status(404).json({ error: error.message })
+            }
+            
+            res.json(project)
         } catch (error) {
             console.log(error)
             
