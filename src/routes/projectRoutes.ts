@@ -55,8 +55,8 @@ router.delete('/:id',
 
 /** rutas para los tasks */
 
-router.post('/:projectid/tasks',
-   TaskController.createProject
+router.post('/:projectId/tasks',
+   TaskController.createTask
 )
 
 
